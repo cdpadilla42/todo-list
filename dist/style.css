@@ -10,6 +10,7 @@ body {
 .grid-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 100px 1fr 1fr 1fr;
   grid-template-areas: "header header header header"
   "side-nav-bar content content content"
   "side-nav-bar content content content"
