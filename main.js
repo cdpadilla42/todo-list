@@ -94,7 +94,7 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _model_newProjectTask__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./model/newProjectTask */ \"./src/model/newProjectTask.js\");\n/* harmony import */ var _model_projects__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./model/projects */ \"./src/model/projects.js\");\n\n\n\nObject(_model_newProjectTask__WEBPACK_IMPORTED_MODULE_0__[\"default\"])('Chris', 'Me!', 1, 'Jan', 'To-Do');\nconsole.log(_model_projects__WEBPACK_IMPORTED_MODULE_1__[\"default\"].projects);\nconsole.log(_model_projects__WEBPACK_IMPORTED_MODULE_1__[\"default\"].showProject);\n\nconst taskForm = document.querySelector('.task-form');\ntaskForm.addEventListener('submit', (e) => {\n  e.preventDefault();\n  alert('form submitted!');\n});\n\nconst extractFormData = function (e) {\n  let title = document.querySelector(\"#title\").value;\n  let description = document.querySelector('#description').value;\n  let priority = document.querySelector('#title').value;\n  let dueDate = document.querySelector('#due-date').value;\n  let project = document.querySelector('#project').value;\n  Object(_model_newProjectTask__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(title, description, priority, dueDate, project);\n  return;\n}\n\n// Next: Basic display. Show Projects and tasks.\n// add buttons with functionality - EXTRACT RADIO BUTTON VALUE\n// Little bit at a time, friend\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _model_newProjectTask__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./model/newProjectTask */ \"./src/model/newProjectTask.js\");\n/* harmony import */ var _model_projects__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./model/projects */ \"./src/model/projects.js\");\n/* harmony import */ var _views_accessProjects__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./views/accessProjects */ \"./src/views/accessProjects.js\");\n\n\n\n\n\nObject(_model_newProjectTask__WEBPACK_IMPORTED_MODULE_0__[\"default\"])('Chris', 'Me!', 1, 'Jan', 'To-Do');\n_views_accessProjects__WEBPACK_IMPORTED_MODULE_2__[\"default\"].displayTasks('To-Do');\n\nconst taskForm = document.querySelector('.task-form');\ntaskForm.addEventListener('submit', (e) => {\n  e.preventDefault();\n  alert('form submitted!');\n});\n\nconst extractFormData = function (e) {\n  const title = document.querySelector(\"#title\").value;\n  const description = document.querySelector('#description').value;\n  const priority = document.querySelector('#title').value;\n  const dueDate = document.querySelector('#due-date').value;\n  const project = document.querySelector('#project').value;\n  Object(_model_newProjectTask__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(title, description, priority, dueDate, project);\n};\n\n// Next: Basic display. Show Projects and tasks.\n// add buttons with functionality - EXTRACT RADIO BUTTON VALUE\n// Little bit at a time, friend\n\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ }),
 
@@ -143,6 +143,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return projectsContainer; });\n// holds information on all projects available\n\n// also holds all tasks within said projects\n\nconst projectsContainer = (function() {\n  const projects = { 'To-Do': [] };\n  const showProject = function(project) {\n    return this.projects[project];\n  };\n  return { projects, showProject };\n}());\n\n\n\n\n//# sourceURL=webpack:///./src/model/projects.js?");
+
+/***/ }),
+
+/***/ "./src/views/accessProjects.js":
+/*!*************************************!*\
+  !*** ./src/views/accessProjects.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return displayProject; });\n/* harmony import */ var _model_projects__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../model/projects */ \"./src/model/projects.js\");\n// pulls data from projects for DOM elements\n\n\n\nconst displayProject = (function () {\n  const createTaskDisplay = function(task, projectDiv) {\n    const displayedTask = document.createElement('div');\n    // displayedTask.attributes.add('class', `${task.title}`);\n    displayedTask.innerText = `${task.title}, ${task.description}`;\n    projectDiv.appendChild(displayedTask);\n  };\n  \n  const displayTasks = function (project) {\n    const projectDiv = document.createElement('div');\n    const currentProject = _model_projects__WEBPACK_IMPORTED_MODULE_0__[\"default\"].showProject(project);\n    \n    for(var i = 0; i < currentProject.length; i++) {\n      console.log(currentProject[i]);\n      createTaskDisplay(currentProject[i], projectDiv);\n    }\n    const content = document.querySelector('#content');\n    content.appendChild(projectDiv);\n    \n  };\n  return { displayTasks, createTaskDisplay };\n}());\n\n\n\n//# sourceURL=webpack:///./src/views/accessProjects.js?");
 
 /***/ })
 
