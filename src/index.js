@@ -1,9 +1,18 @@
 import newProjectTask from './model/newProjectTask';
-import projectsContainer from './model/projects';
+import displayProjectNav from './views/displayProjectNav';
 import displayProject from './views/accessProjects';
 
+// Test projects
+newProjectTask('Papa', 'Me!', 1, 'Jan', 'To-Do');
+newProjectTask('Jenn', 'Me!', 1, 'Jan', 'To-Do');
+newProjectTask('Donna', 'Me!', 1, 'Jan', 'To-Do');
 
-newProjectTask('Chris', 'Me!', 1, 'Jan', 'To-Do');
+displayProjectNav.displayProjectList();
+
+// Real code
+
+
+
 displayProject.displayTasks('To-Do');
 
 const taskForm = document.querySelector('.task-form');

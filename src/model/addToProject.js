@@ -4,7 +4,6 @@ import projectsContainer from './projects';
 
 // add task to project
 const addToProject = function (task) {
-  console.log(task)
   const projectsObj = projectsContainer.projects;
   projectsObj[task.project].push(task);
 };
