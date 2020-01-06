@@ -1,4 +1,5 @@
-import Task from './model/newTask';
+import newProjectTask from './model/newProjectTask';
+import projectsContainer from './model/projects';
 
-const me = Task('Chris', 'Me!', 1, 'Jan', 'To-Do');
-console.log(me);
+newProjectTask('Chris', 'Me!', 1, 'Jan', 'To-Do');
+console.log(projectsContainer.projects);

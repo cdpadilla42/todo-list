@@ -3,7 +3,7 @@
 // also holds all tasks within said projects
 
 const projectsContainer = (function () {
-  const projects = [];
+  const projects = { 'To-Do': [] };
   return { projects };
 }());
 
