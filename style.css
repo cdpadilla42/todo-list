@@ -1,0 +1,32 @@
+html {
+  height: 100%;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas: "header header header header"
+  "side-nav-bar content content content"
+  "side-nav-bar content content content"
+  "side-nav-bar content content content";
+  height: 100%;
+  width: 100%;
+}
+
+.header {
+  grid-area: header;
+  height: 100px;
+}
+
+.side-nav-bar {
+  grid-area: side-nav-bar;
+}
+
+.content {
+  grid-area: content;
+}
