@@ -2,9 +2,12 @@
 
 // also holds all tasks within said projects
 
-const projectsContainer = (function () {
+const projectsContainer = (function() {
   const projects = { 'To-Do': [] };
-  return { projects };
+  const showProject = function(project) {
+    return this.projects[project];
+  };
+  return { projects, showProject };
 }());
 
 export { projectsContainer as default };

@@ -94,7 +94,7 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _model_newProjectTask__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./model/newProjectTask */ \"./src/model/newProjectTask.js\");\n/* harmony import */ var _model_projects__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./model/projects */ \"./src/model/projects.js\");\n\n\n\nObject(_model_newProjectTask__WEBPACK_IMPORTED_MODULE_0__[\"default\"])('Chris', 'Me!', 1, 'Jan', 'To-Do');\nconsole.log(_model_projects__WEBPACK_IMPORTED_MODULE_1__[\"default\"].projects);\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _model_newProjectTask__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./model/newProjectTask */ \"./src/model/newProjectTask.js\");\n/* harmony import */ var _model_projects__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./model/projects */ \"./src/model/projects.js\");\n\n\n\nObject(_model_newProjectTask__WEBPACK_IMPORTED_MODULE_0__[\"default\"])('Chris', 'Me!', 1, 'Jan', 'To-Do');\nconsole.log(_model_projects__WEBPACK_IMPORTED_MODULE_1__[\"default\"].projects);\nconsole.log(_model_projects__WEBPACK_IMPORTED_MODULE_1__[\"default\"].showProject);\n\n\n// Next: Basic display. Show Projects and tasks.\n// add buttons with functionality\n// Little bit at a time, friend\n\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ }),
 
@@ -142,7 +142,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return projectsContainer; });\n// holds information on all projects available\n\n// also holds all tasks within said projects\n\nconst projectsContainer = (function () {\n  const projects = { 'To-Do': [] };\n  return { projects };\n}());\n\n\n\n\n//# sourceURL=webpack:///./src/model/projects.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return projectsContainer; });\n// holds information on all projects available\n\n// also holds all tasks within said projects\n\nconst projectsContainer = (function() {\n  const projects = { 'To-Do': [] };\n  const showProject = function(project) {\n    return this.projects[project];\n  };\n  return { projects, showProject };\n}());\n\n\n\n\n//# sourceURL=webpack:///./src/model/projects.js?");
 
 /***/ })
 
