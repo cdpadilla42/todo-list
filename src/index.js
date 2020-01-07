@@ -16,7 +16,7 @@ displayProjectNav.displayProjectList();
 
 
 
-displayProject.displayTasks();
+displayProject.displayTasks('To-Do');
 
 const extractTaskFormData = function () {
   const title = document.querySelector("#title").value;

@@ -3,7 +3,10 @@
 // also holds all tasks within said projects
 
 const projectsContainer = (function() {
-  const projects = { 'To-Do': [] };
+  const projects = { 
+    'To-Do': [],
+    'Dog-Taks': []
+  };
 
   const showProject = function(projectName) {
     return this.projects[projectName];

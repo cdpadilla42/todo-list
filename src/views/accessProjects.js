@@ -3,7 +3,7 @@ import projectsContainer from '../model/projects';
 
 
 const displayProject = (function () {
-  let currentProjectName = 'To-Do';
+  // let currentProjectName = 'To-Do';
 
   const createTaskDisplay = function(task, projectDiv) {
     const displayedTask = document.createElement('div');
@@ -14,9 +14,9 @@ const displayProject = (function () {
   
   const content = document.querySelector('#content');
 
-  const displayTasks = function () {
-    const projectDiv = document.createElement('div');
-    const currentProject = projectsContainer.showProject(currentProjectName);
+  const displayTasks = function (selectedProject) {
+    let projectDiv = document.createElement('div');
+    let currentProject = projectsContainer.showProject(selectedProject);
     
     for(var i = 0; i < currentProject.length; i++) {
       console.log(currentProject[i]);
@@ -29,7 +29,7 @@ const displayProject = (function () {
 
   const refreshTaskDisplay = function() {
     content.innerHTML = '';
-    displayTasks();
+    displayTasks('To-Do');
   }
   return { displayTasks, createTaskDisplay, refreshTaskDisplay };
 }());

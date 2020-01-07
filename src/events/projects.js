@@ -8,7 +8,8 @@ const projectEvents = (function() {
   const switchProjectView = function(selectedProject) {
     content.innerHTML = '';
     displayProject.currentProjectName = selectedProject;
-    displayProject.displayTasks();
+    console.log(selectedProject);
+    displayProject.displayTasks(selectedProject);
     // TODO: TEST ME!! Build interface for switching projects and then test me
   }
 
