@@ -38,11 +38,10 @@ taskForm.addEventListener('submit', (e) => {
 
 // -------------------------
 
-const extractProjectFormData = function() {
-  // const title = document.querySelector('#project-title').value;
-  // projectsContainer.addProjectToContainer(title);
-  // displayProjectNav.refreshProjectDisplay();
-};
+projectEvents.deleteProject('Dog-Tasks');
+console.log(projectsContainer.projects);
+
+// -------------------------
 
 const projectForm = document.querySelector('.new-proj-form');
 projectForm.addEventListener('submit', (e) => {

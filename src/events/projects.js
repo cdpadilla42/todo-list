@@ -10,7 +10,6 @@ const projectEvents = (function() {
     displayProject.currentProjectName = selectedProject;
     console.log(selectedProject);
     displayProject.displayTasks(selectedProject);
-    // TODO: TEST ME!! Build interface for switching projects and then test me
   }
 
   const openNewProjectForm = function() {
@@ -29,7 +28,7 @@ const projectEvents = (function() {
   }
 
   const deleteProjectFromModel = function(selectedProject) {
-    // deletes project and tasks
+    projectsContainer.deleteProject(selectedProject);
   }
 
   const loadDefaultView = function() {
@@ -38,10 +37,11 @@ const projectEvents = (function() {
 
   const deleteProject = function(selectedProject) {
     deleteProjectFromModel(selectedProject);
-    loadDefaultView();
+    // loadDefaultView();
+    displayProjectNav.refreshProjectDisplay();
   }
 
-  return { submitNewProjectForm, switchProjectView };
+  return { submitNewProjectForm, switchProjectView, deleteProject };
 }());
 
 export { projectEvents as default };
