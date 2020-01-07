@@ -3,8 +3,6 @@
 import projectsContainer from '../model/projects';
 
 const displayProjectNav = (function() {
-  const logProjects = () => console.log(projectsContainer.projects);
-
   const _projectList = projectsContainer.projects;
 
   const _displaySingleProject = function(project) {
@@ -13,9 +11,10 @@ const displayProjectNav = (function() {
     return projectDiv;
   }
 
+  const navBar = document.querySelector('.side-nav-bar');
+
   const displayProjectList = function() {
     // returns div with all projects
-    const navBar = document.querySelector('.side-nav-bar');
     const navDiv = document.createElement('div');
     console.log(_projectList);
     for (const property in _projectList) {
@@ -25,7 +24,12 @@ const displayProjectNav = (function() {
     navBar.appendChild(navDiv);
 
   }
-  return { logProjects, displayProjectList };
+
+  const refreshProjectDisplay = function() {
+    navBar.innerHTML = '';
+    displayProjectList();
+  }
+  return { displayProjectList, refreshProjectDisplay };
 }());
 
 export { displayProjectNav as default };

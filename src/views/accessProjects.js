@@ -3,6 +3,8 @@ import projectsContainer from '../model/projects';
 
 
 const displayProject = (function () {
+  let currentProjectName = 'To-Do';
+
   const createTaskDisplay = function(task, projectDiv) {
     const displayedTask = document.createElement('div');
     // displayedTask.attributes.add('class', `${task.title}`);
@@ -10,19 +12,26 @@ const displayProject = (function () {
     projectDiv.appendChild(displayedTask);
   };
   
-  const displayTasks = function (project) {
+  const content = document.querySelector('#content');
+
+  const displayTasks = function () {
     const projectDiv = document.createElement('div');
-    const currentProject = projectsContainer.showProject(project);
+    const currentProject = projectsContainer.showProject(currentProjectName);
     
     for(var i = 0; i < currentProject.length; i++) {
       console.log(currentProject[i]);
       createTaskDisplay(currentProject[i], projectDiv);
     }
-    const content = document.querySelector('#content');
+    
     content.appendChild(projectDiv);
     
   };
-  return { displayTasks, createTaskDisplay };
+
+  const refreshTaskDisplay = function() {
+    content.innerHTML = '';
+    displayTasks();
+  }
+  return { displayTasks, createTaskDisplay, refreshTaskDisplay };
 }());
 
 export { displayProject as default };
