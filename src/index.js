@@ -1,6 +1,7 @@
 import newProjectTask from './model/newProjectTask';
 import displayProjectNav from './views/displayProjectNav';
 import displayProject from './views/accessProjects';
+import newProject from './model/newProject'
 
 // Test projects
 newProjectTask('Papa', 'Me!', 1, 'Jan', 'To-Do');
@@ -15,7 +16,7 @@ displayProjectNav.displayProjectList();
 
 displayProject.displayTasks();
 
-const extractFormData = function () {
+const extractTaskFormData = function () {
   const title = document.querySelector("#title").value;
   const description = document.querySelector('#description').value;
   const priority = document.querySelector('#priority').value;
@@ -30,7 +31,25 @@ const taskForm = document.querySelector('.task-form');
 taskForm.addEventListener('submit', (e) => {
   e.preventDefault();
   alert('form submitted!');
-  extractFormData();
+  extractTaskFormData();
+});
+
+// -------------------------
+
+const extractProjectFormData = function() {
+  const title = document.querySelector('#project-title').value;
+  let currentProject = newProject(title);
+  // TODO: Add the above currentProject to the projects object
+  // *********************************************************
+
+  displayProjectNav.refreshProjectDisplay();
+};
+
+const projectForm = document.querySelector('.new-proj-form');
+projectForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  alert('form submitted!');
+  extractProjectFormData();
 });
 
 // Next: 
