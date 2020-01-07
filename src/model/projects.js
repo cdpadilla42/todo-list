@@ -4,10 +4,15 @@
 
 const projectsContainer = (function() {
   const projects = { 'To-Do': [] };
-  const showProject = function(project) {
-    return this.projects[project];
+
+  const showProject = function(projectName) {
+    return this.projects[projectName];
   };
-  return { projects, showProject };
+
+  const addProjectToContainer = (projectName) => {
+    projects[projectName] = [];
+  }
+  return { projects, showProject, addProjectToContainer };
 }());
 
 export { projectsContainer as default };

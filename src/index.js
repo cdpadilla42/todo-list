@@ -1,7 +1,8 @@
 import newProjectTask from './model/newProjectTask';
 import displayProjectNav from './views/displayProjectNav';
 import displayProject from './views/accessProjects';
-import newProject from './model/newProject'
+import newProject from './model/newProject';
+import projectsContainer from './model/projects'
 
 // Test projects
 newProjectTask('Papa', 'Me!', 1, 'Jan', 'To-Do');
@@ -39,8 +40,7 @@ taskForm.addEventListener('submit', (e) => {
 const extractProjectFormData = function() {
   const title = document.querySelector('#project-title').value;
   let currentProject = newProject(title);
-  // TODO: Add the above currentProject to the projects object
-  // *********************************************************
+  projectsContainer.addProjectToContainer(title);
 
   displayProjectNav.refreshProjectDisplay();
 };
