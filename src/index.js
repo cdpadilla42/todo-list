@@ -40,12 +40,29 @@ console.log(projectsContainer.projects);
 // -------------------------
 
 
-const newFormBttn = document.querySelector('#open-proj-form');
-newFormBttn.addEventListener('click', projectEvents.openNewProjectForm); // IDK what's keeping this from adding multiples, but ok!!
+
 
 
 const newTaskBttn = document.querySelector('#open-task-form');
 newTaskBttn.addEventListener('click', taskEvents.displayTaskForm); // IDK What's also keeping THIS from adding multiples, but also OK!!
+
+
+// MODAL JS
+const newFormBttn = document.querySelector('#open-proj-form');
+const modal = document.querySelector('.modal');
+newFormBttn.addEventListener(
+  'click',
+  () => {
+    modal.style.display = "block";
+    projectEvents.openNewProjectForm();
+  }
+);
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = 'none';
+  }
+};
 
 // taskEvents.displayTaskForm();
 

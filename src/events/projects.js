@@ -14,11 +14,10 @@ const projectEvents = (function() {
   }
 
   const openNewProjectForm = function() {
-    document.querySelector('#content').appendChild(newProjectForm);
+    document.querySelector('.modal-content').appendChild(newProjectForm);
     const projectForm = document.querySelector('.new-proj-form');
     projectForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      // *** TODO REPLACE WITH submitNewProjectForm from Project Event
       projectEvents.submitNewProjectForm();
     });
   }
