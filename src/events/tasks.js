@@ -11,7 +11,12 @@ const taskEvents = (function() {
     });
   }
 
-  return { displayTaskForm };
+  const closeTaskForm = function() {
+    let taskForm = document.querySelector('.project-form');
+    document.querySelector('#content').removeChild(taskForm);
+  }
+
+  return { displayTaskForm, closeTaskForm };
 }());
 
 export { taskEvents as default };

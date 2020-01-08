@@ -25,6 +25,8 @@ const projectEvents = (function() {
 
   const closeNewProjectForm = function() {
     // removes DOM elements for form
+    let projectForm = document.querySelector('.project-form');
+    document.querySelector('#content').removeChild(projectForm);
   }
 
   const submitNewProjectForm = function() {
@@ -53,6 +55,7 @@ const projectEvents = (function() {
     switchProjectView,
     deleteProject,
     openNewProjectForm,
+    closeNewProjectForm,
   };
 }());
 
