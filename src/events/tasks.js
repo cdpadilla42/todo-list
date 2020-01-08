@@ -2,13 +2,19 @@ import newTaskForm from '../views/taskForm';
 
 const taskEvents = (function() {
   const displayTaskForm = function() {
-    document.querySelector('#content').appendChild(newTaskForm);
-    const taskForm = document.querySelector('.task-form');
-    taskForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      alert('form submitted!');
-      extractTaskFormData();
-    });
+    document.querySelector('.modal-content').appendChild(newTaskForm);
+    console.log("hey");
+    
+
+    // const taskForm = document.querySelector('.task-form'); 
+    // taskForm.appendChild(newTaskForm);
+    // document.querySelector('#modal-content').appendChild(taskForm);
+    // taskForm.addEventListener('submit', (e) => {
+    //   e.preventDefault();
+    //   alert('form submitted!');
+    //   extractTaskFormData();
+    // });
+    
   }
 
   const closeTaskForm = function() {

@@ -22,10 +22,15 @@ const projectEvents = (function() {
     });
   }
 
-  const closeNewProjectForm = function() {
+  const closeForm = function() {
     // removes DOM elements for form
+    let modal = document.querySelector('.modal');
+    modal.style.display = 'none';
     let projectForm = document.querySelector('.project-form');
-    document.querySelector('#content').removeChild(projectForm);
+    let taskForm = document.querySelector('.task-form');
+    document.querySelector('.modal-content').removeChild(projectForm);
+    document.querySelector('.modal-content').removeChild(taskForm);
+    modal.style.display = 'none';
   }
 
   const submitNewProjectForm = function() {
@@ -54,7 +59,7 @@ const projectEvents = (function() {
     switchProjectView,
     deleteProject,
     openNewProjectForm,
-    closeNewProjectForm,
+    closeForm,
   };
 }());
 

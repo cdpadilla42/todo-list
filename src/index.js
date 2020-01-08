@@ -43,8 +43,7 @@ console.log(projectsContainer.projects);
 
 
 
-const newTaskBttn = document.querySelector('#open-task-form');
-newTaskBttn.addEventListener('click', taskEvents.displayTaskForm); // IDK What's also keeping THIS from adding multiples, but also OK!!
+ // IDK What's also keeping THIS from adding multiples, but also OK!!
 
 
 // MODAL JS
@@ -58,9 +57,15 @@ newFormBttn.addEventListener(
   }
 );
 
+const newTaskBttn = document.querySelector('#open-task-form');
+newTaskBttn.addEventListener('click', () => {
+  modal.style.display = 'block';
+  taskEvents.displayTaskForm();
+});
+
 window.onclick = function(event) {
   if (event.target == modal) {
-    modal.style.display = 'none';
+    projectEvents.closeForm();
   }
 };
 
