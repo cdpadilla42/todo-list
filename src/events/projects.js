@@ -1,6 +1,7 @@
 import projectsContainer from '../model/projects';
 import displayProjectNav from '../views/displayProjectNav';
 import displayProject from '../views/accessProjects';
+import newProjectForm from '../views/projectForm';
 
 const projectEvents = (function() {
   const content = document.querySelector('#content');
@@ -13,7 +14,13 @@ const projectEvents = (function() {
   }
 
   const openNewProjectForm = function() {
-    // renders DOM elements with form
+    document.querySelector('#content').appendChild(newProjectForm);
+    const projectForm = document.querySelector('.new-proj-form');
+    projectForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      // *** TODO REPLACE WITH submitNewProjectForm from Project Event
+      projectEvents.submitNewProjectForm();
+    });
   }
 
   const closeNewProjectForm = function() {
@@ -41,7 +48,12 @@ const projectEvents = (function() {
     displayProjectNav.refreshProjectDisplay();
   }
 
-  return { submitNewProjectForm, switchProjectView, deleteProject };
+  return {
+    submitNewProjectForm,
+    switchProjectView,
+    deleteProject,
+    openNewProjectForm,
+  };
 }());
 
 export { projectEvents as default };

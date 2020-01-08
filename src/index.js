@@ -42,13 +42,13 @@ projectEvents.deleteProject('Dog-Tasks');
 console.log(projectsContainer.projects);
 
 // -------------------------
+// open-proj-form - id
 
-const projectForm = document.querySelector('.new-proj-form');
-projectForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  // *** TODO REPLACE WITH submitNewProjectForm from Project Event
-  projectEvents.submitNewProjectForm();
-});
+const newFormBttn = document.querySelector('#open-proj-form');
+newFormBttn.addEventListener('click', projectEvents.openNewProjectForm);
+
+// projectEvents.openNewProjectForm();
+
 
 // Next: 
 // CSS: add buttons with functionality - EXTRACT RADIO BUTTON VALUE
