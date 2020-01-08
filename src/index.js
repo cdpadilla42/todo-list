@@ -4,6 +4,7 @@ import displayProject from './views/accessProjects';
 import newProject from './model/newProject';
 import projectsContainer from './model/projects';
 import projectEvents from './events/projects';
+import taskEvents from './events/tasks';
 
 // Test projects
 newProjectTask('Papa', 'Me!', 1, 'Jan', 'To-Do');
@@ -29,12 +30,7 @@ const extractTaskFormData = function () {
   displayProject.refreshTaskDisplay();
 };
 
-const taskForm = document.querySelector('.task-form');
-taskForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  alert('form submitted!');
-  extractTaskFormData();
-});
+
 
 // -------------------------
 
@@ -42,13 +38,16 @@ projectEvents.deleteProject('Dog-Tasks');
 console.log(projectsContainer.projects);
 
 // -------------------------
-// open-proj-form - id
+
 
 const newFormBttn = document.querySelector('#open-proj-form');
-newFormBttn.addEventListener('click', projectEvents.openNewProjectForm);
+newFormBttn.addEventListener('click', projectEvents.openNewProjectForm); // IDK what's keeping this from adding multiples, but ok!!
 
-// projectEvents.openNewProjectForm();
 
+const newTaskBttn = document.querySelector('#open-task-form');
+newTaskBttn.addEventListener('click', taskEvents.displayTaskForm); // IDK What's also keeping THIS from adding multiples, but also OK!!
+
+// taskEvents.displayTaskForm();
 
 // Next: 
 // CSS: add buttons with functionality - EXTRACT RADIO BUTTON VALUE
