@@ -16,10 +16,20 @@ const projectsContainer = (function() {
     delete projects[selectedProject];
   };
 
+  const deleteTask = function (project, index) {
+    projects[project].splice(index, 1);
+  }
+
   const addProjectToContainer = (projectName) => {
     projects[projectName] = [];
   }
-  return { projects, showProject, addProjectToContainer, deleteProject };
+  return {
+    projects,
+    showProject,
+    addProjectToContainer,
+    deleteProject,
+    deleteTask,
+  };
 }());
 
 export { projectsContainer as default };

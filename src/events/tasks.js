@@ -2,6 +2,7 @@ import newTaskForm from '../views/taskForm';
 import formEvents from './forms';
 import newProjectTask from '../model/newProjectTask';
 import displayProject from '../views/accessProjects';
+import projectsContainer from '../model/projects';
 
 const taskEvents = (function() {
   const displayTaskForm = function() {
@@ -40,7 +41,14 @@ const taskEvents = (function() {
      displayProject.refreshTaskDisplay();
    };
 
-  return { displayTaskForm, closeTaskForm };
+  const deleteTask = function(project, index) {
+     // run deleteTask from model
+    projectsContainer.deleteTask(project, index);
+     // refresh view
+    displayProject.refreshTaskDisplay();
+   }
+
+  return { displayTaskForm, closeTaskForm, deleteTask };
 }());
 
 export { taskEvents as default };

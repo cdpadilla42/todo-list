@@ -1,14 +1,25 @@
 // pulls data from projects for DOM elements
 import projectsContainer from '../model/projects';
+import taskEvents from '../events/tasks';
 
 
 const displayProject = (function () {
   // let currentProjectName = 'To-Do';
 
-  const createTaskDisplay = function(task, projectDiv) {
+  
+
+  const createTaskDisplay = function(task, projectDiv, index) {
     const displayedTask = document.createElement('div');
-    // displayedTask.attributes.add('class', `${task.title}`);
-    displayedTask.innerText = `${task.title}, ${task.description}`;
+    let deleteBttn = document.createElement('span');
+    deleteBttn.classList.add('delete-bttn');
+    deleteBttn.innerText = 'X';
+    deleteBttn.addEventListener('click', () => {
+      taskEvents.deleteTask(task.project, index);
+    });
+    displayedTask.setAttribute('data-index', `${index}`);
+    displayedTask.innerText = `${task.title}, ${task.description}, ${task.project}`;
+
+    displayedTask.appendChild(deleteBttn);
     projectDiv.appendChild(displayedTask);
   };
   
@@ -20,7 +31,7 @@ const displayProject = (function () {
     
     for(var i = 0; i < currentProject.length; i++) {
       console.log(currentProject[i]);
-      createTaskDisplay(currentProject[i], projectDiv);
+      createTaskDisplay(currentProject[i], projectDiv, i);
     }
     
     content.appendChild(projectDiv);
