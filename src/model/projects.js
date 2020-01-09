@@ -20,6 +20,20 @@ const projectsContainer = (function() {
     projects[project].splice(index, 1);
   }
 
+  const updateTask = function(
+    title,
+    description,
+    priority,
+    dueDate,
+    project,
+    index) {
+      projects[project][index].title = title;
+      projects[project][index].description = description;
+      projects[project][index].priority = priority;
+      projects[project][index].dueDate = dueDate;
+      projects[project][index].project = project;
+    };
+
   const addProjectToContainer = (projectName) => {
     projects[projectName] = [];
   }
@@ -29,6 +43,7 @@ const projectsContainer = (function() {
     addProjectToContainer,
     deleteProject,
     deleteTask,
+    updateTask,
   };
 }());
 

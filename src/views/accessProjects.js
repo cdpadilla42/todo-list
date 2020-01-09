@@ -4,10 +4,6 @@ import taskEvents from '../events/tasks';
 
 
 const displayProject = (function () {
-  // let currentProjectName = 'To-Do';
-
-  
-
   const createTaskDisplay = function(task, projectDiv, index) {
     const displayedTask = document.createElement('div');
     let deleteBttn = document.createElement('span');
