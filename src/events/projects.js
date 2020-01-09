@@ -2,6 +2,7 @@ import projectsContainer from '../model/projects';
 import displayProjectNav from '../views/displayProjectNav';
 import displayProject from '../views/accessProjects';
 import newProjectForm from '../views/projectForm';
+import formEvents from './forms';
 
 const projectEvents = (function() {
   const content = document.querySelector('#content');
@@ -23,11 +24,8 @@ const projectEvents = (function() {
   }
 
   const closeForm = function() {
-    // removes DOM elements for form
     let modal = document.querySelector('.modal');
     modal.style.display = 'none';
-    // find a way to discover weather the div child is a project form or task form and then remove it.
-    // OR rename the divs you create to a unified name so that it can be removed regardless of which form it is.
     let currentForm = document.querySelector('.current-form');
     document.querySelector('.modal-content').removeChild(currentForm);
     modal.style.display = 'none';
@@ -37,7 +35,7 @@ const projectEvents = (function() {
     const title = document.querySelector('#project-title').value;
     projectsContainer.addProjectToContainer(title);
     displayProjectNav.refreshProjectDisplay();
-    // closeNewProjectForm();
+    formEvents.closeForm();
   }
 
   const deleteProjectFromModel = function(selectedProject) {
