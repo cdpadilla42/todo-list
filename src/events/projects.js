@@ -26,10 +26,10 @@ const projectEvents = (function() {
     // removes DOM elements for form
     let modal = document.querySelector('.modal');
     modal.style.display = 'none';
-    let projectForm = document.querySelector('.project-form');
-    let taskForm = document.querySelector('.task-form');
-    document.querySelector('.modal-content').removeChild(projectForm);
-    document.querySelector('.modal-content').removeChild(taskForm);
+    // find a way to discover weather the div child is a project form or task form and then remove it.
+    // OR rename the divs you create to a unified name so that it can be removed regardless of which form it is.
+    let currentForm = document.querySelector('.current-form');
+    document.querySelector('.modal-content').removeChild(currentForm);
     modal.style.display = 'none';
   }
 
