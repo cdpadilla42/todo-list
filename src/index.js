@@ -57,9 +57,9 @@ window.onclick = function(event) {
 const updateBttn = document.querySelector('#update');
 updateBttn.addEventListener('click', () => {
   modal.style.display = 'block';
-  taskEvents.displayTaskForm();
+  taskEvents.displayUpdateForm();
   formEvents.autoFillForm('To-Do', 1);
-})
+});
 
 
 // taskEvents.displayTaskForm();
