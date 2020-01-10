@@ -12,9 +12,17 @@ const displayProject = (function () {
     deleteBttn.addEventListener('click', () => {
       taskEvents.deleteTask(task.project, index);
     });
+    let updateBttn = document.createElement('span');
+    updateBttn.classList.add('update-bttn');
+    updateBttn.innerText = 'Update';
+    updateBttn.addEventListener('click', () => {
+      console.log('update!')
+      taskEvents.displayUpdateForm(task.project, index);
+    });
     displayedTask.setAttribute('data-index', `${index}`);
     displayedTask.innerText = `${task.title}, ${task.description}, ${task.project}`;
 
+    displayedTask.appendChild(updateBttn);
     displayedTask.appendChild(deleteBttn);
     projectDiv.appendChild(displayedTask);
   };

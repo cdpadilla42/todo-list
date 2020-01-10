@@ -21,12 +21,14 @@ const taskEvents = (function() {
     document.querySelector('#content').removeChild(taskForm);
   }
 
-  const displayUpdateForm = function() {
+  const displayUpdateForm = function(project, index) {
+    document.querySelector('.modal').style.display = 'block';
     document.querySelector('.modal-content').appendChild(newTaskForm);
     const taskForm = document.querySelector('.task-form');
+    formEvents.autoFillForm(project, index);
     taskForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      extractUpdateFormData(1);
+      extractUpdateFormData(index);
       formEvents.closeForm();
     })
   };
