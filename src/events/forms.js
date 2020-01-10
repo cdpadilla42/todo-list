@@ -1,3 +1,5 @@
+import projectsContainer from '../model/projects';
+
 const formEvents = (function () {
   const closeForm = function() {
     let modal = document.querySelector('.modal');
@@ -7,7 +9,16 @@ const formEvents = (function () {
     modal.style.display = 'none';
   };
 
-  return { closeForm };
+  const autoFillForm = function (project, index) {
+    let currentTask = projectsContainer.projects[project][index];
+    document.querySelector('#title').value = currentTask.title;
+    document.querySelector('#description').value = currentTask.description;
+    document.querySelector('#priority').value = currentTask.priority;
+    document.querySelector('#due-date').value = currentTask.dueDate;
+    document.querySelector('#project').value = currentTask.project;
+  }
+
+  return { closeForm, autoFillForm };
 }());
 
 export { formEvents as default }

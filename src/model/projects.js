@@ -20,7 +20,7 @@ const projectsContainer = (function() {
     projects[project].splice(index, 1);
   }
 
-  const updateTask = function(
+  const updateTask = function (
     title,
     description,
     priority,

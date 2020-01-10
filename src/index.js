@@ -11,6 +11,7 @@ import formEvents from './events/forms'
 newProjectTask('Papa', 'Me!', 1, 'Jan', 'To-Do');
 newProjectTask('Jenn', 'Me!', 1, 'Jan', 'To-Do');
 newProjectTask('Donna', 'Me!', 1, 'Jan', 'To-Do');
+projectsContainer.updateTask('New', 'Wow', 1, 'Now', 'To-Do', 0);
 
 displayProjectNav.displayProjectList();
 
@@ -20,31 +21,13 @@ displayProjectNav.displayProjectList();
 
 displayProject.displayTasks('To-Do');
 
-const extractTaskFormData = function () {
-  const title = document.querySelector("#title").value;
-  const description = document.querySelector('#description').value;
-  const priority = document.querySelector('#priority').value;
-  const dueDate = document.querySelector('#due-date').value;
-  const project = document.querySelector('#project').value;
-  newProjectTask(title, description, priority, dueDate, project);
-  
-  displayProject.refreshTaskDisplay();
-};
-
 
 
 // -------------------------
 
-projectEvents.deleteProject('Dog-Tasks');
-console.log(projectsContainer.projects);
+
 
 // -------------------------
-
-
-
-
-
- // IDK What's also keeping THIS from adding multiples, but also OK!!
 
 
 // MODAL JS
@@ -69,6 +52,15 @@ window.onclick = function(event) {
     formEvents.closeForm();
   }
 };
+
+// Update event listener test
+const updateBttn = document.querySelector('#update');
+updateBttn.addEventListener('click', () => {
+  modal.style.display = 'block';
+  taskEvents.displayTaskForm();
+  formEvents.autoFillForm('To-Do', 1);
+})
+
 
 // taskEvents.displayTaskForm();
 
