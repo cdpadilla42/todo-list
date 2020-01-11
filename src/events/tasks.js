@@ -32,7 +32,7 @@ const taskEvents = (function() {
 
   const removeEventListeners = function() {
     // grabs update buttons
-    const updateBttns = document.querySelector('.update-bttn');
+    const updateBttns = document.querySelectorAll('.update-bttn');
     // iterates over the node list
     updateBttns.forEach(button => {
       button.removeEventListener('submit', updateEvent);
@@ -46,7 +46,7 @@ const taskEvents = (function() {
     const taskForm = document.querySelector('.task-form');
     taskForm.setAttribute('data-index', index);
     formEvents.autoFillForm(project, index);
-    taskForm.addEventListener('submit', updateEvent);
+    taskForm.addEventListener('submit', updateEvent, { once: true });
   };
 
   const extractTaskFormData = function() {
@@ -60,16 +60,19 @@ const taskEvents = (function() {
     displayProject.refreshTaskDisplay();
   };
 
+  const taskSubmitEvent = function(e) {
+    e.preventDefault();
+    extractTaskFormData();
+    // form events - remove modal content
+    formEvents.closeForm();
+    //TODO: add empty form
+  };
+
+  //TODO: Assign anonmyous function a name, then remove event listener upon closing
   const displayTaskForm = function() {
     document.querySelector('.modal-content').appendChild(newTaskForm);
     const taskForm = document.querySelector('.task-form');
-    taskForm.addEventListener('submit', e => {
-      e.preventDefault();
-      extractTaskFormData();
-      // form events - remove modal content
-      formEvents.closeForm();
-      //TODO: add empty form
-    });
+    taskForm.addEventListener('submit', taskSubmitEvent, { once: true });
   };
 
   const deleteTask = function(project, index) {
