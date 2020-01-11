@@ -5,7 +5,7 @@ import newProject from './model/newProject';
 import projectsContainer from './model/projects';
 import projectEvents from './events/projects';
 import taskEvents from './events/tasks';
-import formEvents from './events/forms'
+import formEvents from './events/forms';
 
 // Test projects
 newProjectTask('Papa', 'Me!', 1, 'Jan', 'To-Do');
@@ -17,29 +17,21 @@ displayProjectNav.displayProjectList();
 
 // Real code
 
-
-
 displayProject.displayTasks('To-Do');
 
-
-
 // -------------------------
 
-
-
 // -------------------------
-
 
 // MODAL JS
 const newFormBttn = document.querySelector('#open-proj-form');
 const modal = document.querySelector('.modal');
-newFormBttn.addEventListener(
-  'click',
-  () => {
-    modal.style.display = "block";
-    projectEvents.openNewProjectForm();
-  }
-);
+newFormBttn.addEventListener('click', () => {
+  modal.style.display = 'block';
+  projectEvents.openNewProjectForm();
+});
+
+console.log('test');
 
 const newTaskBttn = document.querySelector('#open-task-form');
 newTaskBttn.addEventListener('click', () => {
@@ -48,7 +40,7 @@ newTaskBttn.addEventListener('click', () => {
 });
 
 window.onclick = function(event) {
-  if (event.target == modal) {
+  if (event.target === modal) {
     formEvents.closeForm();
   }
 };
@@ -61,10 +53,9 @@ updateBttn.addEventListener('click', () => {
   formEvents.autoFillForm('To-Do', 1);
 });
 
-
 // taskEvents.displayTaskForm();
 
-// Next: 
+// Next:
 // CSS: add buttons with functionality - EXTRACT RADIO BUTTON VALUE
 // JS: update task
 // Little bit at a time, friend
