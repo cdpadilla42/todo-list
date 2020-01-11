@@ -25,8 +25,19 @@ const taskEvents = (function() {
     console.log(e.target.getAttribute('data-index'));
     e.preventDefault();
     extractUpdateFormData(e.target.getAttribute('data-index'));
+    //TODO: Empty form values
     formEvents.closeForm();
-    e.target.removeEventListener('submit', updateEvent);
+    // e.target.removeEventListener('submit', updateEvent);
+  };
+
+  const removeEventListeners = function() {
+    // grabs update buttons
+    const updateBttns = document.querySelector('.update-bttn');
+    // iterates over the node list
+    updateBttns.forEach(button => {
+      button.removeEventListener('submit', updateEvent);
+    });
+    // remove the eventlisteners for each
   };
 
   const displayUpdateForm = function(project, index) {
@@ -57,6 +68,7 @@ const taskEvents = (function() {
       extractTaskFormData();
       // form events - remove modal content
       formEvents.closeForm();
+      //TODO: add empty form
     });
   };
 
@@ -73,7 +85,8 @@ const taskEvents = (function() {
     deleteTask,
     extractUpdateFormData,
     displayUpdateForm,
-    extractTaskFormData
+    extractTaskFormData,
+    removeEventListeners
   };
 })();
 
