@@ -18,7 +18,7 @@ const taskEvents = (function() {
     const project = document.querySelector('#project').value;
     projectsContainer.updateTask(title, description, priority, dueDate, project, index);
 
-    displayProject.refreshTaskDisplay();
+    displayProject.refreshTaskDisplay(project);
   };
 
   const updateEvent = function(e) {
@@ -57,7 +57,7 @@ const taskEvents = (function() {
     const project = document.querySelector('#project').value;
     newProjectTask(title, description, priority, dueDate, project);
 
-    displayProject.refreshTaskDisplay();
+    displayProject.refreshTaskDisplay(project);
   };
 
   const taskSubmitEvent = function(e) {
@@ -79,7 +79,7 @@ const taskEvents = (function() {
     // run deleteTask from model
     projectsContainer.deleteTask(project, index);
     // refresh view
-    displayProject.refreshTaskDisplay();
+    displayProject.refreshTaskDisplay(project);
   };
 
   // Expand and Brief Views

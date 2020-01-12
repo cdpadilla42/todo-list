@@ -59,9 +59,9 @@ const displayProject = (function() {
 
   const displayExpandedTask = function(project, index) {};
 
-  const refreshTaskDisplay = function() {
+  const refreshTaskDisplay = function(project) {
     content.innerHTML = '';
-    displayTasks('To-Do');
+    displayTasks(project);
   };
   return { displayTasks, createTaskDisplay, refreshTaskDisplay };
 })();
