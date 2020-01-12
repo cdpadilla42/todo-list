@@ -29,6 +29,14 @@ const projectsContainer = (function() {
     projects[project][index].project = project;
   };
 
+  const completeFaslify = function(project, index) {
+    projects[project][index].complete = false;
+  };
+
+  const completeTruthify = function(project, index) {
+    projects[project][index].complete = true;
+  };
+
   const addProjectToContainer = projectName => {
     projects[projectName] = [];
   };
@@ -38,7 +46,9 @@ const projectsContainer = (function() {
     addProjectToContainer,
     deleteProject,
     deleteTask,
-    updateTask
+    updateTask,
+    completeTruthify,
+    completeFaslify
   };
 })();
 

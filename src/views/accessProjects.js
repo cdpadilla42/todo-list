@@ -7,6 +7,26 @@ const displayProject = (function() {
     const displayedTask = document.createElement('div');
     displayedTask.classList.add('single-task-div');
 
+    const displayText = document.createElement('span');
+    displayText.innerText = `${task.title}`;
+
+    const completeBox = document.createElement('input');
+    completeBox.setAttribute('type', 'checkbox');
+    completeBox.setAttribute('class', 'checkbox');
+    completeBox.setAttribute('data-index', index);
+    if (task.complete) {
+      completeBox.checked = true;
+    }
+    completeBox.addEventListener('change', e => {
+      console.log(e.target.checked);
+      if (e.target.checked) {
+        // update task completion
+        projectsContainer.completeTruthify(task.project, index);
+      } else {
+        projectsContainer.completeFaslify(task.project, index, false);
+      }
+    });
+
     let deleteBttn = document.createElement('span');
     deleteBttn.classList.add('delete-bttn');
     deleteBttn.innerText = 'X';
@@ -34,8 +54,8 @@ const displayProject = (function() {
     });
 
     displayedTask.setAttribute('data-index', `${index}`);
-    displayedTask.innerText = `${task.title}`;
 
+    displayedTask.appendChild(completeBox);
     displayedTask.appendChild(updateBttn);
     displayedTask.appendChild(deleteBttn);
     displayedTask.appendChild(expandBttn);
