@@ -16,9 +16,11 @@ const displayProject = (function() {
     completeBox.setAttribute('data-index', index);
     if (task.complete) {
       completeBox.checked = true;
+      displayedTask.classList.add('complete');
     }
     completeBox.addEventListener('change', e => {
       console.log(e.target.checked);
+      displayedTask.classList.toggle('complete');
       if (e.target.checked) {
         // update task completion
         projectsContainer.completeTruthify(task.project, index);
@@ -56,6 +58,7 @@ const displayProject = (function() {
     displayedTask.setAttribute('data-index', `${index}`);
 
     displayedTask.appendChild(completeBox);
+    displayedTask.appendChild(displayText);
     displayedTask.appendChild(updateBttn);
     displayedTask.appendChild(deleteBttn);
     displayedTask.appendChild(expandBttn);
