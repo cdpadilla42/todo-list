@@ -5,8 +5,6 @@ const formEvents = (function() {
     let modal = document.querySelector('.modal');
     modal.style.display = 'none';
     let currentForm = document.querySelector('.current-form');
-    currentForm.firstElementChild.removeEventListener('click', updateEvent);
-    currentForm.firstElementChild.removeEventListener('click', taskSubmitEvent);
 
     document.querySelector('.modal-content').removeChild(currentForm);
     modal.style.display = 'none';

@@ -82,6 +82,10 @@ const taskEvents = (function() {
     displayProject.refreshTaskDisplay();
   };
 
+  // Expand and Brief Views
+
+  const expandTask = function(project, index) {};
+
   return {
     displayTaskForm,
     closeTaskForm,
