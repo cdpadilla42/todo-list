@@ -45,14 +45,6 @@ window.onclick = function(event) {
   }
 };
 
-// Update event listener test
-const updateBttn = document.querySelector('#update');
-updateBttn.addEventListener('click', () => {
-  modal.style.display = 'block';
-  taskEvents.displayUpdateForm();
-  formEvents.autoFillForm('To-Do', 1);
-});
-
 // taskEvents.displayTaskForm();
 
 // Next:

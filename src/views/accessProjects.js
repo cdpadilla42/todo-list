@@ -7,6 +7,9 @@ const displayProject = (function() {
     const displayedTask = document.createElement('div');
     displayedTask.classList.add('single-task-div');
 
+    const briefView = document.createElement('div');
+    briefView.classList.add('brief-view-div');
+
     const displayText = document.createElement('span');
     displayText.innerText = `${task.title}`;
 
@@ -46,7 +49,9 @@ const displayProject = (function() {
     const expansion = document.createElement('div');
     expansion.classList.add('expansion');
     expansion.classList.add('hidden');
-    expansion.innerText = `${task.description} // ${task.dueDate}`;
+    const expansionText = document.createElement('span');
+    expansionText.innerText = `${task.description} // ${task.dueDate}`;
+    expansion.appendChild(expansionText);
 
     let expandBttn = document.createElement('span');
     expandBttn.classList.add('expand-bttn');
@@ -57,11 +62,12 @@ const displayProject = (function() {
 
     displayedTask.setAttribute('data-index', `${index}`);
 
-    displayedTask.appendChild(completeBox);
-    displayedTask.appendChild(displayText);
-    displayedTask.appendChild(updateBttn);
-    displayedTask.appendChild(deleteBttn);
-    displayedTask.appendChild(expandBttn);
+    briefView.appendChild(completeBox);
+    briefView.appendChild(displayText);
+    expansion.appendChild(deleteBttn);
+    expansion.appendChild(updateBttn);
+    briefView.appendChild(expandBttn);
+    displayedTask.appendChild(briefView);
     displayedTask.appendChild(expansion);
     projectDiv.appendChild(displayedTask);
   };
@@ -71,6 +77,10 @@ const displayProject = (function() {
   const displayTasks = function(selectedProject) {
     let projectDiv = document.createElement('div');
     let currentProject = projectsContainer.showProject(selectedProject);
+
+    const projectTitlehead = document.querySelector('.project-title');
+    projectTitlehead.innerText = `${selectedProject}`;
+    console.log(currentProject)
 
     for (var i = 0; i < currentProject.length; i++) {
       console.log(currentProject[i]);

@@ -11,34 +11,33 @@ const displayProjectNav = (function() {
     const projectDiv = document.createElement('div');
     projectDiv.innerHTML = `<a href="#" id="${project}">${project}</a>`;
     return projectDiv;
-  }
+  };
 
   const navBar = document.querySelector('.side-nav-bar');
 
   const displayProjectList = function() {
     // returns div with all projects
     const navDiv = document.createElement('div');
+    navDiv.classList.add('nav-div');
     console.log(_projectList);
     // eslint-disable-next-line guard-for-in
     for (const property in _projectList) {
       let currentProject = _displaySingleProject(property);
-      currentProject.addEventListener('click', (e) => {
+      currentProject.addEventListener('click', e => {
         projectEvents.switchProjectView(currentProject.firstElementChild.getAttribute('id'));
       });
-      navDiv.appendChild(currentProject)
+      navDiv.appendChild(currentProject);
       // add event listener to navDiv for current project
     }
-    
-    navBar.appendChild(navDiv);
 
-  }
+    navBar.appendChild(navDiv);
+  };
 
   const refreshProjectDisplay = function() {
     navBar.innerHTML = '';
     displayProjectList();
-  }
+  };
   return { displayProjectList, refreshProjectDisplay };
-}());
+})();
 
 export { displayProjectNav as default };
-

@@ -5,14 +5,18 @@ html {
 body {
   width: 100%;
   height: 100%;
+  font-family: Roboto, Ubuntu, sans-serif;
+  background-color: #23272a;
+  margin: 0;
+  padding: 0;
 }
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 100px 1fr 1fr 1fr;
+  grid-template-columns: 250px; 1fr 1fr 1fr;
+  grid-template-rows: 60px 1fr 1fr 1fr;
   grid-template-areas:
-    'header header header header'
+    'header project project project'
     'side-nav-bar content content content'
     'side-nav-bar content content content'
     'side-nav-bar content content content';
@@ -22,15 +26,28 @@ body {
 
 .header {
   grid-area: header;
-  height: 100px;
+  color: #7289da;
+}
+
+.project {
+  color: white;
+  background-color: #2c2f33;
+  grid-area: project;
 }
 
 .side-nav-bar {
   grid-area: side-nav-bar;
+  color: white;
+  overflow: scroll;
+  font-size: 20px;
+  /* box-shadow: 5px 10px 18px #888888 */
 }
 
-.content {
+#content {
   grid-area: content;
+  background-color: #2c2f33;
+  color: white;
+  overflow: scroll;
 }
 
 .modal {
@@ -60,4 +77,129 @@ body {
 
 .complete {
   color: green;
+}
+
+h1 {
+  margin: 0 auto;
+  width: 185px;
+  padding-top: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+h2 {
+  margin: 0;
+  padding: 10px;
+  padding-left: 30px;
+  font-size: 20px;
+  font-weight: bold;
+}
+a {
+  text-decoration: none;
+  color: white;
+  
+}
+
+#open-proj-form, #open-task-form, .nav-div a  {
+  display: block;
+  box-sizing: border-box;
+  border: 1px solid white;
+  /* padding: 20px 20px; */
+  padding: 3px;
+  height: auto;
+  width: 200px;
+  margin: 10px auto;
+  text-align: center;
+}
+
+#open-proj-form:hover, #open-task-form:hover {
+  background-color: #6db8a8;
+  border: 1px solid #6db8a8;
+}
+
+h3 {
+  margin: 0;
+  padding: 0;
+  margin-left: 30px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.nav-div {
+  /* margin-left: 30px; */
+}
+.nav-div a {
+  /* display: block; */
+  /* box-sizing: border-box; */
+  /* border: 1px solid white; */
+  /* padding: 3px; */
+  /* height: auto; */
+  /* width: 175px; */
+  /* margin: 10px 0; */
+
+  
+}
+
+.nav-div a:hover, .expand-bttn:hover{
+  background-color: #51539c;
+  border: 1px solid #51539c;
+}
+
+.single-task-div {
+  display: inline-block;
+  box-sizing: border-box;
+  border-bottom: 1px solid white;
+  /* padding: 20px 20px; */
+  padding: 3px 10px;
+  height: auto;
+  min-width: 400px;
+  width: 80%;
+  margin: 10px 0;
+  margin-left: 50px;
+  line-height: 25px;
+}
+
+.update-bttn, .delete-bttn, .expand-bttn {
+  border: 1px solid white;
+  box-sizing: border-box;
+  display: inline-block;
+  padding: 8px;
+  height: auto;
+  width: 100px;
+  margin: 0;
+  text-align: center;
+  line-height: 18px;
+}
+
+.expand-bttn {
+  float: right;
+}
+
+
+.update-bttn {
+  float: right;
+}
+
+.update-bttn:hover {
+  background-color: #eecd3b;
+  border: 1px solid #eecd3b;
+}
+
+.delete-bttn {
+  float: right;
+}
+
+.delete-bttn:hover {
+  background-color: #f2859f;
+  border: 1px solid #f2859f;
+}
+
+.expansion {
+  margin-top: 20px;
+  padding-top: 0;
+}
+
+.brief-view-div, .expansion {
+  height: 50px;
+  padding: 10px;
 }

@@ -1,28 +1,31 @@
-<!DOCTYPE html> 
-  <html>
-    <head>
-      <title>To-do-a-pa-looza!</title>
-      <link rel="stylesheet" type="text/css" href="style.css" />
-    </head>
-    <body>
-      <div class="grid-container">
-        <div class="header">
-          To-do-a-pa-looza!
-          <a href="#" id="open-proj-form">+ Project</a> | <a href="#" id="open-task-form">+ Task</a>
-        </div>
-        <div class="side-nav-bar">
-          Projects here!
-        </div>
-        <div id="content">
-          <p>This is where the good stuff is.</p>
-        </div>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>To-do-a-pa-looza!</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <div class="grid-container">
+      <div class="header">
+        <h1>TO-DO-A-PA-LOOZA</h1>
       </div>
-      <div class="modal">
-        <div class="modal-content">
-          <span class="close">&times;</span>
+      <div class="side-nav-bar">
+        <div class="nav-buttons">
+          <a href="#" id="open-proj-form">+ Project</a>
+          <a href="#" id="open-task-form">+ Task</a>
         </div>
-        
+        <h3>Your Projects:</h3>
       </div>
+      <div class="project">
+        <h2 class="project-title">Project Title Here</h2>
+      </div>
+      <div id="content"></div>
+    </div>
+    <div class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+      </div>
+    </div>
     <script src="main.js"></script>
-    </body>
-  </html>
+  </body>
+</html>
