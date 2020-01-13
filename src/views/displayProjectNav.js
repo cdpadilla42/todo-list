@@ -13,7 +13,7 @@ const displayProjectNav = (function() {
     return projectDiv;
   };
 
-  const navBar = document.querySelector('.side-nav-bar');
+  const navBar = document.querySelector('.project-titles');
 
   const displayProjectList = function() {
     // returns div with all projects
