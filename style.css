@@ -75,9 +75,7 @@ body {
   display: none;
 }
 
-.complete {
-  color: green;
-}
+
 
 h1 {
   margin: 0 auto;
@@ -195,11 +193,22 @@ h3 {
 }
 
 .expansion {
-  margin-top: 20px;
-  padding-top: 0;
+  padding: 10px;
 }
 
-.brief-view-div, .expansion {
+.expansion-text{
+  display: block;
+  width: 100%;
+  clear: right;
+  margin-bottom: 8px;
+}
+
+.brief-view-div,  {
   height: 50px;
   padding: 10px;
+}
+
+.complete {
+  background-color: #6db8a8;
+  border-bottom: 0;
 }
