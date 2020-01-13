@@ -3,6 +3,14 @@
 // also holds all tasks within said projects
 
 const projectsContainer = (function() {
+  const setProjects = function() {
+    return JSON.parse(localStorage.getItem('projects'));
+  };
+
+  const updateStorage = function() {
+    localStorage.setItem('projects', JSON.stringify(projects));
+  };
+
   const checkLocalStorage = function() {
     if (!localStorage.getItem('projects')) {
       return populateStorage();
@@ -42,10 +50,12 @@ const projectsContainer = (function() {
 
   const deleteProject = function(selectedProject) {
     delete projects[selectedProject];
+    updateStorage();
   };
 
   const deleteTask = function(project, index) {
     projects[project].splice(index, 1);
+    updateStorage();
   };
 
   const updateTask = function(title, description, priority, dueDate, project, index) {
@@ -54,18 +64,22 @@ const projectsContainer = (function() {
     projects[project][index].priority = priority;
     projects[project][index].dueDate = dueDate;
     projects[project][index].project = project;
+    updateStorage();
   };
 
   const completeFaslify = function(project, index) {
     projects[project][index].complete = false;
+    updateStorage();
   };
 
   const completeTruthify = function(project, index) {
     projects[project][index].complete = true;
+    updateStorage();
   };
 
   const addProjectToContainer = projectName => {
     projects[projectName] = [];
+    updateStorage();
   };
   return {
     projects,
@@ -76,7 +90,8 @@ const projectsContainer = (function() {
     updateTask,
     completeTruthify,
     completeFaslify,
-    checkLocalStorage
+    checkLocalStorage,
+    updateStorage
   };
 })();
 
