@@ -5,7 +5,7 @@ import projectsContainer from '../model/projects';
 import projectEvents from '../events/projects';
 
 const displayProjectNav = (function() {
-  const _projectList = projectsContainer.projects;
+  let _projectList = projectsContainer.projects;
 
   const _displaySingleProject = function(project) {
     const projectDiv = document.createElement('div');
@@ -17,6 +17,7 @@ const displayProjectNav = (function() {
 
   const displayProjectList = function() {
     // returns div with all projects
+    _projectList = projectsContainer.projects;
     const navDiv = document.createElement('div');
     navDiv.classList.add('nav-div');
     console.log(_projectList);

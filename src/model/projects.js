@@ -3,14 +3,41 @@
 // also holds all tasks within said projects
 
 const projectsContainer = (function() {
-  // eslint-disable-next-line prefer-const
-  let projects = {
-    'To-Do': [],
-    'Dog-Tasks': []
+  const checkLocalStorage = function() {
+    if (!localStorage.getItem('projects')) {
+      return populateStorage();
+    } else {
+      return setProjects();
+    }
   };
 
+  const populateStorage = function() {
+    return {
+      'To-Do': [
+        {
+          title: 'Call Mom',
+          description: 'Catch up on her week',
+          priority: 1,
+          dueDate: 'Today, 8:00 pm',
+          project: 'To-Do'
+        }
+      ],
+      'Dog-Tasks': [
+        {
+          title: 'Walk Lucy',
+          description: 'Get some fresh air!',
+          priority: 1,
+          dueDate: 'Today, 6:00 pm',
+          project: 'Dog-Tasks'
+        }
+      ]
+    };
+  };
+
+  let projects = checkLocalStorage();
+
   const showProject = function(projectName) {
-    return this.projects[projectName];
+    return projects[projectName];
   };
 
   const deleteProject = function(selectedProject) {
@@ -48,7 +75,8 @@ const projectsContainer = (function() {
     deleteTask,
     updateTask,
     completeTruthify,
-    completeFaslify
+    completeFaslify,
+    checkLocalStorage
   };
 })();
 

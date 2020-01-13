@@ -8,10 +8,11 @@ import taskEvents from './events/tasks';
 import formEvents from './events/forms';
 
 // Test projects
-newProjectTask('Papa', 'Me!', 1, 'Jan', 'To-Do');
-newProjectTask('Jenn', 'Me!', 1, 'Jan', 'To-Do');
-newProjectTask('Donna', 'Me!', 1, 'Jan', 'To-Do');
-projectsContainer.updateTask('New', 'Wow', 1, 'Now', 'To-Do', 0);
+// newProjectTask('Papa', 'Me!', 1, 'Jan', 'To-Do');
+// newProjectTask('Jenn', 'Me!', 1, 'Jan', 'To-Do');
+// newProjectTask('Donna', 'Me!', 1, 'Jan', 'To-Do');
+
+projectsContainer.checkLocalStorage();
 
 displayProjectNav.displayProjectList();
 
