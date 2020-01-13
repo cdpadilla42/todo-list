@@ -50,6 +50,7 @@ const displayProject = (function() {
     expansion.classList.add('expansion');
     expansion.classList.add('hidden');
     const expansionText = document.createElement('span');
+    expansionText.classList.add('expansion-text');
     expansionText.innerText = `${task.description} // ${task.dueDate}`;
     expansion.appendChild(expansionText);
 
@@ -74,18 +75,29 @@ const displayProject = (function() {
 
   const content = document.querySelector('#content');
 
+  
+
   const displayTasks = function(selectedProject) {
     let projectDiv = document.createElement('div');
     let currentProject = projectsContainer.showProject(selectedProject);
 
     const projectTitlehead = document.querySelector('.project-title');
     projectTitlehead.innerText = `${selectedProject}`;
-    console.log(currentProject)
+    console.log(currentProject);
 
     for (var i = 0; i < currentProject.length; i++) {
       console.log(currentProject[i]);
       createTaskDisplay(currentProject[i], projectDiv, i);
     }
+
+    const deleteProjectBttn = document.createElement('span');
+    deleteProjectBttn.classList.add('delete-project-bttn');
+    // TODO: in events module, create delete project event. Should include:
+    // Open are you sure? can be popup window
+    // run the model function delete project
+    // update storage
+    // refresh nav bar
+    // show default page for tasks
 
     content.appendChild(projectDiv);
   };
