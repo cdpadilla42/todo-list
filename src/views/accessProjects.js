@@ -75,8 +75,6 @@ const displayProject = (function() {
 
   const content = document.querySelector('#content');
 
-  
-
   const displayTasks = function(selectedProject) {
     let projectDiv = document.createElement('div');
     let currentProject = projectsContainer.showProject(selectedProject);
@@ -92,17 +90,9 @@ const displayProject = (function() {
 
     const deleteProjectBttn = document.createElement('span');
     deleteProjectBttn.classList.add('delete-project-bttn');
-    // TODO: in events module, create delete project event. Should include:
-    // Open are you sure? can be popup window
-    // run the model function delete project
-    // update storage
-    // refresh nav bar
-    // show default page for tasks
 
     content.appendChild(projectDiv);
   };
-
-  const displayExpandedTask = function(project, index) {};
 
   const refreshTaskDisplay = function(project) {
     content.innerHTML = '';

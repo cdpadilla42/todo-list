@@ -1,28 +1,14 @@
 import newProjectTask from './model/newProjectTask';
 import displayProjectNav from './views/displayProjectNav';
 import displayProject from './views/accessProjects';
-import newProject from './model/newProject';
 import projectsContainer from './model/projects';
 import projectEvents from './events/projects';
 import taskEvents from './events/tasks';
 import formEvents from './events/forms';
 
-// Test projects
-// newProjectTask('Papa', 'Me!', 1, 'Jan', 'To-Do');
-// newProjectTask('Jenn', 'Me!', 1, 'Jan', 'To-Do');
-// newProjectTask('Donna', 'Me!', 1, 'Jan', 'To-Do');
-
 projectsContainer.checkLocalStorage();
-
 displayProjectNav.displayProjectList();
-
-// Real code
-
 displayProject.displayTasks('To-Do');
-
-// -------------------------
-
-// -------------------------
 
 // MODAL JS
 const newFormBttn = document.querySelector('#open-proj-form');
@@ -45,10 +31,3 @@ window.onclick = function(event) {
     formEvents.closeForm();
   }
 };
-
-// taskEvents.displayTaskForm();
-
-// Next:
-// CSS: add buttons with functionality - EXTRACT RADIO BUTTON VALUE
-// JS: update task
-// Little bit at a time, friend

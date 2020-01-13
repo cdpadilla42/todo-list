@@ -25,19 +25,14 @@ const taskEvents = (function() {
     console.log(e.target.getAttribute('data-index'));
     e.preventDefault();
     extractUpdateFormData(e.target.getAttribute('data-index'));
-    //TODO: Empty form values
     formEvents.closeForm();
-    // e.target.removeEventListener('submit', updateEvent);
   };
 
   const removeEventListeners = function() {
-    // grabs update buttons
     const updateBttns = document.querySelectorAll('.update-bttn');
-    // iterates over the node list
     updateBttns.forEach(button => {
       button.removeEventListener('submit', updateEvent);
     });
-    // remove the eventlisteners for each
   };
 
   const displayUpdateForm = function(project, index) {
@@ -63,12 +58,9 @@ const taskEvents = (function() {
   const taskSubmitEvent = function(e) {
     e.preventDefault();
     extractTaskFormData();
-    // form events - remove modal content
     formEvents.closeForm();
-    //TODO: add empty form
   };
 
-  //TODO: Assign anonmyous function a name, then remove event listener upon closing
   const displayTaskForm = function() {
     document.querySelector('.modal-content').appendChild(newTaskForm);
     const taskForm = document.querySelector('.task-form');
@@ -76,15 +68,9 @@ const taskEvents = (function() {
   };
 
   const deleteTask = function(project, index) {
-    // run deleteTask from model
     projectsContainer.deleteTask(project, index);
-    // refresh view
     displayProject.refreshTaskDisplay(project);
   };
-
-  // Expand and Brief Views
-
-  const expandTask = function(project, index) {};
 
   return {
     displayTaskForm,

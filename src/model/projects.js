@@ -14,9 +14,8 @@ const projectsContainer = (function() {
   const checkLocalStorage = function() {
     if (!localStorage.getItem('projects')) {
       return populateStorage();
-    } else {
-      return setProjects();
     }
+    return setProjects();
   };
 
   const populateStorage = function() {

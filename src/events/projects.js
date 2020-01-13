@@ -9,7 +9,6 @@ const projectEvents = (function() {
   const content = document.querySelector('#content');
 
   const switchProjectView = function(selectedProject) {
-    // remove event listeners
     taskEvents.removeEventListeners();
     content.innerHTML = '';
     displayProject.currentProjectName = selectedProject;
@@ -51,7 +50,7 @@ const projectEvents = (function() {
 
   const deleteProject = function(selectedProject) {
     deleteProjectFromModel(selectedProject);
-    // loadDefaultView();
+    // potentially insert default view
     displayProjectNav.refreshProjectDisplay();
   };
 
