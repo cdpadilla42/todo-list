@@ -22,10 +22,24 @@ const projectsContainer = (function() {
     return {
       'To-Do': [
         {
-          title: 'Call Mom',
-          description: 'Catch up on her week',
+          title: 'Call Doctor',
+          description: 'Set appointment',
           priority: 1,
           dueDate: 'Today, 8:00 pm',
+          project: 'To-Do'
+        },
+        {
+          title: 'Schedule Car Repair',
+          description: 'Set appointment',
+          priority: 1,
+          dueDate: 'Today, 3:00 pm',
+          project: 'To-Do'
+        },
+        {
+          title: 'Clean Bathroom',
+          description: 'For game night this weekend',
+          priority: 1,
+          dueDate: 'Saturday, 12:00 pm',
           project: 'To-Do'
         }
       ],
@@ -33,6 +47,13 @@ const projectsContainer = (function() {
         {
           title: 'Walk Lucy',
           description: 'Get some fresh air!',
+          priority: 1,
+          dueDate: 'Today, 5:00 pm',
+          project: 'Dog-Tasks'
+        },
+        {
+          title: 'Feed Lucy',
+          description: 'Give medicine!',
           priority: 1,
           dueDate: 'Today, 6:00 pm',
           project: 'Dog-Tasks'
